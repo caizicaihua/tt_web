@@ -1,0 +1,59 @@
+@import './tokens.css';
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--canvas);
+  font-family: var(--el-font-family);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #38a68b66;
+  outline-offset: 4px;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+::selection {
+  background: #c6e8dc;
+  color: #075341;
+}
+.el-button {
+  font-weight: 600;
+}
+.el-dialog {
+  border-radius: 20px;
+  padding: 28px;
+  max-width: calc(100vw - 32px);
+}
+.el-dialog__body {
+  line-height: 1.9;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+!.env.example
+.DS_Store
+output/
+.playwright-cli/
+coverage/
+*.tsbuildinfo
+# Keep this scaffold's shared tooling configuration despite machine-wide ignores.
+!.gitignore
+!.prettierrc.json
