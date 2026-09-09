@@ -6,7 +6,7 @@
       >
       <div class="nav-caption">工作空间</div>
       <nav aria-label="主导航">
-        <router-link v-for="page in visiblePages" :key="page.path" :to="page.path"
+        <router-link v-for="page in portalMenus" :key="page.path" :to="page.path"
           ><el-icon><component :is="icons[page.icon]" /></el-icon>{{ page.title }}</router-link
         >
       </nav>
@@ -29,20 +29,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Calendar, Connection, DataLine, Download, Wallet } from '@element-plus/icons-vue'
+import { Calendar, Connection, Wallet } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import BrandMark from '@/components/BrandMark.vue'
-import { portalPages } from '@/constants/navigation'
+import { portalMenus } from '@/constants/navigation'
 import { useAuthStore } from '@/stores/auth'
-const icons = { Calendar, Connection, DataLine, Download, Wallet }
+const icons = { Calendar, Connection, Wallet }
 const route = useRoute()
 const router = useRouter()
 const auth = useAuthStore()
-const visiblePages = computed(() =>
-  portalPages.filter((page) => auth.session?.permissions.includes(page.permission)),
-)
 const signingOut = ref(false)
 async function signOut() {
   signingOut.value = true

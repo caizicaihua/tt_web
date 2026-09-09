@@ -72,7 +72,7 @@
         ><el-icon><Connection /></el-icon>统一账户管理</span
       ><i></i
       ><span
-        ><el-icon><Calendar /></el-icon>每日消耗报表</span
+        ><el-icon><Calendar /></el-icon>广告日账单</span
       ><i></i
       ><span
         ><el-icon><DataLine /></el-icon>实时数据追踪</span

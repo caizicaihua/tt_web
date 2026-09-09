@@ -1,4 +1,5 @@
-export const portalPages = [
+// Sidebar entries are fixed in the frontend; no menu API is required.
+export const portalMenus = [
   {
     path: '/portal/authorizations',
     title: '授权中心',
@@ -15,11 +16,15 @@ export const portalPages = [
   },
   {
     path: '/portal/daily',
-    title: '每日消耗',
+    title: '日账单',
     icon: 'Calendar',
     permission: 'reports:read',
-    description: '按账户日期查看每日广告消耗与系列明细。',
+    description: '按日期范围与授权用户查看广告日账单及系列明细。',
   },
+] as const
+
+export const portalPages = [
+  ...portalMenus,
   {
     path: '/portal/realtime',
     title: '实时数据',
@@ -39,5 +44,5 @@ export const portalPages = [
 export const DEFAULT_PORTAL_PATH = '/portal/authorizations'
 
 export function firstAvailablePage(permissions: string[]) {
-  return portalPages.find((page) => permissions.includes(page.permission))?.path || '/403'
+  return portalMenus.find((page) => permissions.includes(page.permission))?.path || '/403'
 }
